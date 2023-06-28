@@ -4,6 +4,7 @@ function Send-SystemInfoToSlackWebhook {
     
     foreach ($cmd in $commands) {
         $output = Invoke-Expression -Command $cmd
+        $output = $output -replace '\\', '\\\\' # Escape backslashes in the output
         $payload += "`n`n`$ $cmd`n$output"
     }
     $payload = '{"text": "```' + $payload + '```"}'
